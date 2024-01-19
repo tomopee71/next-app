@@ -1,6 +1,8 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/navbar'
+// layout.jsにProviderを渡す
+import {ShopContextProvider} from "../context/shop-context"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,8 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ja">
       <body className={inter.className}>
+        <ShopContextProvider>
         <Navbar />
         {children}
+        </ShopContextProvider>
       </body>
     </html>
   )
